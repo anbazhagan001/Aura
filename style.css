@@ -1,0 +1,318 @@
+/* =========================================================================
+   AURA 2026 - CYBERNETIC FUTURISTIC DESIGN SYSTEM
+   Department of Information Technology, Adhiparasakthi Engineering College
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-primary: #060813;
+  --bg-secondary: #0b0f24;
+  --bg-card: rgba(13, 19, 44, 0.75);
+  --bg-card-hover: rgba(18, 26, 60, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-neon: rgba(0, 242, 254, 0.35);
+  
+  --neon-cyan: #00f2fe;
+  --neon-blue: #4facfe;
+  --neon-purple: #8b5cf6;
+  --neon-pink: #ec4899;
+  --neon-amber: #f59e0b;
+  --neon-green: #10b981;
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Custom Cyber Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #060813;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f2fe 0%, #8b5cf6 100%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f2fe;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Glowing Neon Gradients */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-aura {
+  background: linear-gradient(135deg, #00f2fe 0%, #7928ca 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 242, 254, 0.12);
+}
+
+.glass-panel-glow {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+}
+
+/* Cyber Button Styles */
+.btn-cyber-primary {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #8b5cf6 100%);
+  color: #060813;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+}
+
+.btn-cyber-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.7);
+  filter: brightness(1.1);
+}
+
+.btn-cyber-secondary {
+  background: rgba(13, 19, 44, 0.8);
+  color: #f8fafc;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.btn-cyber-secondary:hover {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: #00f2fe;
+  color: #00f2fe;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Floating Animation */
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
+/* Subtle Breathing Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Background Cyber Grid */
+.cyber-grid-overlay {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Radial Glow Orbs */
+.glow-orb-cyan {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(0, 242, 254, 0) 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.glow-orb-purple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(139, 92, 246, 0) 70%);
+  filter: blur(45px);
+  pointer-events: none;
+}
+
+/* Event Card Specific Hover */
+.event-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 15px 35px -5px rgba(0, 242, 254, 0.25);
+}
+
+.event-card .card-img {
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* Countdown Card */
+.countdown-box {
+  background: rgba(11, 15, 36, 0.85);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00f2fe, #8b5cf6);
+}
+
+/* E-Ticket Styles for Print & Download */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-ticket, #printable-ticket * {
+    visibility: visible;
+  }
+  #printable-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: #ffffff !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Background Video Styling (Global Fixed, Mobile Optimized & Hardware Accelerated) */
+.cyber-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #060813;
+}
+
+.cyber-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  -webkit-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+  pointer-events: none;
+}
+
